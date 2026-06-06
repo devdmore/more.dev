@@ -75,14 +75,14 @@ export default function Timeline() {
           {milestones.map((item, index) => (
             <div key={index} className="timeline-item grid md:grid-cols-12 gap-8 relative">
               {/* Left Column: Role & Impact */}
-              <div className="md:col-span-7 relative pl-8 border-l-2 border-leaf/30">
+              <div className="md:col-span-7 relative pl-8 border-l-2 border-leaf/30 glass-container p-8 bg-white/5 shadow-sm">
                 <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-leaf shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
                 <h3 className="text-3xl font-bold text-slate-800 mb-1">{item.company}</h3>
                 <h4 className="text-xl text-leaf font-bold mb-4">{item.role} <span className="text-slate-400 font-medium ml-2">| {item.period}</span></h4>
                 <ul className="space-y-4">
                   {item.impact.map((bullet, i) => (
                     <li key={i} className="text-slate-600 leading-relaxed text-lg flex gap-2">
-                      <span className="text-leaf">▹</span> {bullet}
+                      <span className="text-leaf shrink-0">▹</span> {bullet}
                     </li>
                   ))}
                 </ul>

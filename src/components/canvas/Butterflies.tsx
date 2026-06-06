@@ -139,7 +139,7 @@ export default function Butterflies({ count = 120 }) {
     if (mesh.current.material instanceof THREE.MeshStandardMaterial) {
        mesh.current.material.emissive.lerp(glowColor, 0.05);
        mesh.current.material.color.lerp(glowColor, 0.05);
-       mesh.current.material.emissiveIntensity = 4 + Math.sin(time * 2) * 2;
+       mesh.current.material.emissiveIntensity = 0.5 + Math.sin(time * 2) * 0.5;
     }
 
     mesh.current.instanceMatrix.needsUpdate = true;
@@ -151,9 +151,9 @@ export default function Butterflies({ count = 120 }) {
       <meshStandardMaterial
         color="#bef264"
         emissive="#bef264"
-        emissiveIntensity={4}
+        emissiveIntensity={1}
         transparent
-        opacity={1.0}
+        opacity={0.8}
         side={THREE.DoubleSide}
       />
     </instancedMesh>

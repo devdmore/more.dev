@@ -1,7 +1,7 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber';
-import { Sky, Environment, ContactShadows } from '@react-three/drei';
+import { Sky, Environment, ContactShadows, Cloud } from '@react-three/drei';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import Nature from './Nature';
 import Butterflies from './Butterflies';
@@ -34,6 +34,14 @@ export default function Scene() {
   return (
     <Canvas shadows camera={{ position: [0, 5, 15], fov: 50 }}>
       <Sky sunPosition={[100, 20, 100]} />
+      <Cloud
+        opacity={0.5}
+        speed={0.4}
+        width={10}
+        depth={1.5}
+        segments={20}
+        position={[0, 10, -10]}
+      />
       <ambientLight intensity={0.8} />
       <directionalLight
         position={[50, 50, 50]}
@@ -46,14 +54,6 @@ export default function Scene() {
         <Nature />
         <Butterflies count={120} />
         <Environment preset="park" />
-
-        <EffectComposer>
-          <Bloom
-            intensity={1.5}
-            luminanceThreshold={0.1}
-            luminanceSmoothing={0.9}
-          />
-        </EffectComposer>
 
         <ContactShadows
           position={[0, -5, 0]}
