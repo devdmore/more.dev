@@ -2,10 +2,9 @@
 
 import { Canvas } from '@react-three/fiber';
 import { Sky, Environment, ContactShadows, Cloud } from '@react-three/drei';
-import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import Nature from './Nature';
 import Butterflies from './Butterflies';
-import { Suspense, useRef } from 'react';
+import { Suspense } from 'react';
 import { useFrame } from '@react-three/fiber';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -37,8 +36,7 @@ export default function Scene() {
       <Cloud
         opacity={0.5}
         speed={0.4}
-        width={10}
-        depth={1.5}
+        bounds={[10, 1, 2]}
         segments={20}
         position={[0, 10, -10]}
       />
